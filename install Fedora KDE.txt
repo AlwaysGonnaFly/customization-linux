@@ -107,9 +107,17 @@ flatpak install flathub com.github.KRTirtho.Spotube -y
 flatpak install flathub com.mattjakeman.ExtensionsManager -y
 
 # Enable Theme support for flatpak
+sudo flatpak override --filesystem=~/.themes
+sudo flatpak override --filesystem=~/.local/share/icons
+sudo flatpak override --filesystem=xdg-config/gtk-4.0
 
+# Install cava
+sudo dnf install cava -y
+unzip ~/Downloads/cava-config.zip -d ~/.config/
 
-
+# Install neofetch
+sudo dnf install neofetch -y
+unzip ~/Downloads/neofetch-config.zip -d ~/.config/
 
 
 

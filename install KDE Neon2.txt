@@ -1,0 +1,87 @@
+# video: https://www.youtube.com/watch?v=ETJeeBlCZBE
+
+# Install / update
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y qt6-base-dev qt6-tools curl wget git cmake extra-cmake-modules \
+    build-essential libkdecorations2-dev libkdecorations2 \ 
+    libkf6windowsystem-dev libkf6notifications-dev libkf6kio-dev \
+    libkf6crash-dev libkf6i18n-dev libkf6guiaddons-dev libepoxy-dev \
+    libkf6globalaccel-dev libkf6kcmutils-dev libkf6configwidgets-dev \
+    libkf6declarative-dev libplasma-dev libwayland-dev \
+    libkf6plasma-dev libkf6wayland-dev libxcb1-dev libxcb-randr0-dev \
+    libx11-dev libsm-dev g++ qt6-tools-dev kwin-dev libkf6configwidgets-dev \
+    gettext libkf6crash-dev libkf6globalaccel-dev libkf6kio-dev \
+    libkf6service-dev libkf6notifications-dev libkf6kcmutils-dev \
+    libkdecorations2-dev libxext-dev qt6-svg-dev qt6-base-dev-tools \
+    plasma-framework kdeplasma-addons
+    
+# open the video
+
+# Install theme
+cd ~/Desktop/github
+git clone https://github.com/linuxscoop/Relax-Plasma-Themes.git
+cd Relax-Plasma-Themes
+mkdir -p ~/.local/share/color-schemes && cp -Rv Relax\ Colorschemes/*.colors ~/.local/share/color-schemes/ 
+mkdir -p ~/.themes && cp -Rv Relax\ GTK\ Themes/* ~/.themes
+mkdir -p ~/.local/share/plasma/desktoptheme && cp -Rv Relax\ Plasma\ Themes/* ~/.local/share/plasma/desktoptheme 
+mkdir -p ~/.local/share/aurorae/themes && cp -Rv Relax\ Window Decotations/" ~/.local/share/aurorae/themes/ 
+mkdir -p ~/.local/share/konsole/ && cp -Rv Relax\ Konsole\ Colorscheme/ ~/.local/share/konsole/
+
+# Install Kvantum
+sudo add-apt-repository ppa:papirus/papirus
+sudo apt update
+sudo apt install qt6-style-kvantum qt6-style-kvantum-themes
+
+cd ~/Desktop/github/Relax-Plasma-Themes/
+mkdir -p ~/.config/Kvantum && cp -Rv Relax\ Kvantum\ Themes/* ~/.config/Kvantum/
+
+# Install icons
+cd ~/Desktop/github
+git clone https://github.com/vinceliuice/Colloid-icon-theme.git
+cd Colloid-icon-theme/
+install.sh -s default -t teal
+
+# Install cursor
+cd ~/Desktop/github
+git clone https://github.com/alvatip/Nordzy-cursors.git
+cd Nordzy-cursors
+./install.sh
+
+# Install fonts and wallpapers
+cd ~/Desktop/github/customization-linux/forest-assets
+unzip -o fonts.zip -d ~/.local/share/
+unzip -o wallpapers.zip -d ~/.local/share/
+
+# open the video
+
+# Install plasmoids
+unzip -o ~/Desktop/github/customization-linux/forest-assets/plasmoids.zip -d ~/.local/share/plasma/
+
+# Install applet window title
+cd ~/Desktop/github/customization-linux/forest-assets
+unzip plasma6-window-title-applet.zip
+cd plasma6-window-title-applet
+./install.sh
+
+# Install applet buttons
+cd ~/Desktop/github/customization-linux/forest-assets
+unzip applet-window-buttons6.zip
+cd applet-window-buttons6
+./install.sh
+
+# Install applet appmenu (doesn't work (maybe))
+cd ~/Desktop/github/customization-linux/forest-assets
+unzip applet-window-appmenu6.zip
+cd applet-window-appmenu6
+./install.sh
+
+# Panel Spacer Extended
+# Link: https://github.com/luisbocanegra/plasma-panel-spacer-extended?tab=readme-ov-file
+
+# Application Title Bar
+# Link: https://github.com/antroids/application-title-bar
+
+# Install
+
+
+

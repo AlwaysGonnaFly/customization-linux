@@ -30,7 +30,9 @@ sudo venv/bin/python3 main.py
 
 # Customization
 sudo apt update
+sudo dnf update
 sudo apt-get install curl git rsync
+sudo dnf install curl git rsync
 flatpak install flathub com.github.tchx84.Flatseal
 
 ## open the guide
@@ -38,15 +40,15 @@ flatpak install flathub com.github.tchx84.Flatseal
 download all from: https://www.pling.com/p/2062884/
 
 # Installing Plasma
-cd ~/Downloads && git clone https://github.com/vinceliuice/MacSonoma-kde.git 8& cd MacSonoma-kde/
+cd ~/Desktop/github && git clone https://github.com/vinceliuice/MacSonoma-kde.git && cd MacSonoma-kde/
 ./install.sh --round
 
 # Installing GTK Theme
-cd ~/Downloads && git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git cd WhiteSur-gtk-theme/
+cd ~/Desktop/github && git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git && cd WhiteSur-gtk-theme/
 ./install.sh
 
-./tweaks.sh -F
-sudo flatpak override --filesystem=xdg-config/gtk-4.0
+#./tweaks.sh -F
+#sudo flatpak override --filesystem=xdg-config/gtk-4.0
 
 # Lightly
 sudo apt install cmake build-essential libkf5config-dev libkdecorations2-dev libqt5x11extras5-dev qtdeclarative5-dev extra-cmake-modules libkf5guiaddons-dev libkf5configwidgets-dev libkf5windowsystem-dev libkf5coreaddons-dev libkf5iconthemes-dev gettext qt3d5-dev
@@ -62,11 +64,11 @@ sudo apt update
 sudo apt install qt5-style-kvantum qt5-style-kvantum-themes
 
 # Install Icon Theme : WhiteSur-icon-theme
-cd ~/Downloads && git clone https://github.com/vinceliuice/WhiteSur-icon-theme git cd WhiteSur-icon-theme/
+cd ~/Desktop/github && git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git && cd WhiteSur-icon-theme/
 ./install.sh -a
 
 # Install Cursors Theme: WhiteSur-cursors
-cd ~/Downloads && git clone https: // github.com/vinceliuice/WhiteSur-cursors.git && cd WhiteSur-cursors/
+cd ~/Desktop/github && git clone https://github.com/vinceliuice/WhiteSur-cursors.git && cd WhiteSur-cursors/
 ./install.sh
 
 # Install Fonts
@@ -90,16 +92,16 @@ ls -al ~/.local/share/plasma/plasmoids
 rm -rf ~/Downloads/plasmoids
 
 # Installing window appr applet
-cd ~/Downloads && git clone https://github.com/psifidotos/applet-window-appmenu.git && cd applet-window-appmenu/
+cd ~/Desktop/github && git clone https://github.com/psifidotos/applet-window-appmenu.git && cd applet-window-appmenu/
 sudo apt install make cmake extra-cmake-modules qtdeclarative5-dev libkf5plasma-dev libqt5x11extras5-dev g++ libsm-dev libkf5configwidgets-dev libkdecorations2-dev libkf5itemmodels-dev plasma-workspace-dev libkf5wayland-dev
 ./install.sh
 
 # Installing Window Title applet
-cd ~/Downloads && git clone https://github.com/psifidotos/applet-window-title.git cd applet-window-title/
+cd ~/Desktop/github && git clone https://github.com/psifidotos/applet-window-title.git && cd applet-window-title/
 kpackagetool5 -i .
 
 # Installing Window Buttons Applet
-cd ~/Downloads && git clone https://github.com/ruvkr/applet-window-buttons.git && cd applet-window-buttons/
+cd ~/Desktop/github && git clone https://github.com/ruvkr/applet-window-buttons.git && cd applet-window-buttons/
 sudo apt install extra-cmake-modules qtdeclarative5-dev libkf5plasma-dev libkf5declarative-dev libkf5configwidgets-dev libkf5i18n-dev libkdecorations2-dev
 ./install.sh
 

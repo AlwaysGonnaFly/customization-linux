@@ -57,11 +57,13 @@ cd Lightly && mkdir build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib -DBUILD_TESTING=OFF ..
 make
 sudo make install
+sudo dnf install Lightly
 
 # Kvantum
 sudo add-apt-repository ppa:papirus/papirus  
 sudo apt update  
 sudo apt install qt5-style-kvantum qt5-style-kvantum-themes
+sudo dnf install kvantum
 
 # Install Icon Theme : WhiteSur-icon-theme
 cd ~/Desktop/github && git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git && cd WhiteSur-icon-theme/
@@ -82,7 +84,7 @@ ls -al ~/.local/share/wallpapers
 # open the video
 
 # Install DOOM Theme
-sudo sh ~/Downloads/MacSonoma-kde/sddm/install.sh
+sudo sh ~/Desktop/github/MacSonoma-kde/sddm/install.sh
 System Settings > Startup and Shutdown > Login Screen (SDOM)
 
 # Installing Plasmoids Widgets
@@ -113,6 +115,7 @@ cp ~/Downloads/top-panel/plasma-org.kde.plasma.desktop-appletsrc ~/.config/
 kstart5 plasmashell
 
 sudo apt install latte-dock
+sudo dnf install latte-dock
 
 # open the video
 

@@ -1,0 +1,127 @@
+# video: https://www.youtube.com/watch?v=jWDgdC28tYo
+
+# Install / update
+sudo apt update && sudo apt upgrade -y
+sudo apt-get --ignore-missing install -y qt6-base-dev qt6-tools curl wget rsync sassc vlc \
+    git cmake extra-cmake-modules \
+    build-essential libkdecorations2-dev libkdecorations2 \ 
+    libkf6windowsystem-dev libkf6notifications-dev libkf6kio-dev \
+    libkf6crash-dev libkf6i18n-dev libkf6guiaddons-dev libepoxy-dev \
+    libkf6globalaccel-dev libkf6kcmutils-dev libkf6configwidgets-dev \
+    libkf6declarative-dev libplasma-dev libwayland-dev \
+    libkf6plasma-dev libkf6wayland-dev libxcb1-dev libxcb-randr0-dev \
+    libx11-dev libsm-dev g++ qt6-tools-dev kwin-dev libkf6configwidgets-dev \
+    gettext libkf6crash-dev libkf6globalaccel-dev libkf6kio-dev \
+    libkf6service-dev libkf6notifications-dev libkf6kcmutils-dev \
+    libkdecorations2-dev libxext-dev qt6-svg-dev qt6-base-dev-tools \
+    plasma-framework kdeplasma-addons \
+    git cmake extra-cmake-modules build-essential \
+    libkf6windowsystem-dev libkf6notifications-dev libkf6kio-dev \
+    libkf6crash-dev libkf6i18n-dev libkf6guiaddons-dev libepoxy-dev \
+    libkf6globalaccel-dev libkf6kcmutils-dev libkf6configwidgets-dev \
+    libkf6declarative-dev kdecoration-dev libplasma-dev libwayland-dev \
+    libkf6plasma-dev software-properties-common
+
+sudo apt install -y gnome-weather gnome-maps gnome-calendar gnome-clocks
+
+# Download files
+# Link №1: https://www.pling.com/p/2200488/ (exclude 10)
+
+# Install themes
+unzip -o ~/Downloads/plasma6macos-plasma-themes.zip -d ~/.local/share
+unzip -o ~/Downloads/plasma6macos-gtk-theme-config.zip -d ~/
+ln -sf ~/.config/gtk-4.0/gtk-Light.css ~/.config/gtk-4.0/gtk.css
+
+# Install kvantum
+sudo add-apt-repository ppa:papirus/papirus
+sudo apt update
+sudo apt install -y qt6-style-kvantum qt6-style-kvantum-themes
+unzip -o ~/Downloads/plasma6macos-Kvantum.zip -d ~/.config
+
+# Install icons
+unzip -o ~/Downloads/plasma6macos-icons.zip -d ~/.local/share/
+
+# Install cursors
+unzip -o ~/Downloads/plasma6macos-cursors.zip -d ~/.local/share/
+
+# Install fonts
+unzip -o ~/Downloads/plasma6macos-fonts.zip -d ~/.local/share/
+ls -al ~/.local/share/fonts
+
+# Install wallpapers
+unzip -o ~/Downloads/plasma5macos-wallpapers.zip -d ~/.local/share/
+ls -al ~/.local/share/wallpapers
+
+# Install Plasmoid
+unzip -o ~/Downloads/plasma6macos-plasmoids-widgets.zip -d ~/.local/share/plasma/
+
+# Install KWin
+unzip -o ~/Downloads/plasma6macos-kwin.zip -d ~/.local/share/plasma/
+
+# Install Force Blur
+cd ~/Downloads && git clone https://github.com/taj-ny/kwin-effects-forceblur && cd kwin-effects-forceblur
+mkdir build && cd build
+cmake ../ -DCMAKE_INSTALL_PREFIX=/usr && make && sudo make install
+
+# Install SDDM
+sudo unzip -o ~/Downloads/plasma6macos-sddm.zip -d /
+sudo apt install -y plymouth plymouth-themes
+sudo unzip -o ~/Downloads/plasma6macos-plymouth-theme.zip -d /usr/share/plymouth/themes
+sudo update-alternatives --config default.plymouth
+sudo plymouth-set-default-theme -R macOS
+
+# Install Plasma 6 Conf
+kquitapp5 plasmashell
+unzip -o ~/Downloads/plasma6macos-kdeconfigs.zip -d ~/.config
+kstart5 plasmashell &> /dev/null &
+
+# Install zsh
+sudo apt install -y zsh
+chsh -s $(which zsh)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" << EOF
+Y
+EOF
+
+# Install zsh plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
+
+# Install oh-my-posh
+sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
+sudo chmod +x /usr/local/bin/oh-my-posh
+
+# Install zsh/posh confs
+unzip -o ~/Downloads/zsh-ohmyposh-config.zip -d ~/
+chmod u+rw ~/.poshthemes/*.json
+
+unzip -o ~/Downloads/plasma6macos-konsole-profile.zip -d ~/.local/share/
+
+# Customize Firefox
+cd ~/Downloads && git clone https://github.com/vinceliuice/WhiteSur-firefox-theme.git && cd WhiteSur-firefox-theme
+./install.sh -m
+
+# Enable flatpak
+sudo apt install -y flatpak
+flatpak remote-add --if-not-exists flathub \
+https://flathub.org/repo/flathub.flatpakrepo
+
+# Install flatpak packages
+flatpak install flathub io.bassi.Amberol -y
+flatpak install flathub net.agalwood.Matrix -y
+flatpak install flathub com.rafaelmardojai.Blanket -y
+flatpak install flathub com.github.KRTirtho.Spotube -y
+flatpak install flathub com.mattjakeman.ExtensionsManager -y
+
+# Enable Theme support for flatpak
+sudo flatpak override --filesystem=~/.themes
+sudo flatpak override --filesystem=~/.local/share/icons
+sudo flatpak override --filesystem=xdg-config/gtk-4.0
+
+# Install cava
+sudo apt install cava -y
+unzip ~/Downloads/cava-config.zip -d ~/.config/
+
+# Install neofetch
+sudo apt install neofetch -y
+unzip ~/Downloads/neofetch-config.zip -d ~/.config/
